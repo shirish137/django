@@ -54,3 +54,7 @@ def create_blog(request):
        #print("Category:",bcat)
 
        return HttpResponse("Data Fetched")
+    
+
+def testfunction(request):
+    pass
