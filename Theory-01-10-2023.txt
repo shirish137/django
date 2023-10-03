@@ -1,0 +1,134 @@
+Request Method: GET 
+Functionality: Show empty form to user to create blog 
+
+Request Method:POST 
+This means that user filled the form and submitted data.
+
+In View function 
+1) Fetch data submitted by Form 
+2) Store that data into database.
+
+Data submitted by form using GET or POST is always in 
+the form of Key and value.
+
+http:127.0.0.1:8000/createblog?title=Blog Title&detail=blog details&cat=2 => url (request)
+
+Data submitted by form to backend or view function is stored
+by request object in a inbuilt dictionary GET or POST as per 
+the request method.
+
+http:127.0.0.1:8000/createblog?title=Blog Title&detail=blog details&cat=2 => url (request)
+
+title=Blog Title&detail=blog details&cat=2
+Request => POST 
+
+POST['title']=blog title 
+POST['detail']=blog details 
+POST['cat']=2
+
+Request => GET
+
+GET['title']=blog title 
+GET['detail']=blog details 
+GET['cat']=2
+
+Django Architecture 
+===================
+MVT : Model View and Template 
+
+Templates=> Html files 
+view     => Logical Operations [function based View]
+
+Model 
+=====
+
+                 title=blog title
+                 detail=blog detail 
+                 cat=2                           Store in DB
+Template         --------------------> View      -------------------------> database table
+create_blog.html                       btitle=
+                                       bdetail=
+                                       bcat=
+
+
+What is Model?
+=============
+Model in django is representation of table in the database.
+
+                        Model = Table
+E.g
+That means if there are 50 tables in the database, then there 
+are 50 models defined in the django.
+
+To begin with database, a DBMS must be installed on the system.
+DBMS: mysql  [workbend or xampp(mysql)] 
+
+Mysql is a DBMS is a application and blog is another application.
+In order to store, fetch ,delete and edit data into 
+database table created in Mysql DBMS, django application must 
+establish connection with Mysql DBMS.
+
+One time process.
+1) connecting django application [blog application] with Mysql 
+   DBMS.
+
+step1: go to settings.py file.
+step2: edit database setting in DATABASES constant that 
+       contains the list of databases.
+       Default DBMS given by Djang is sqllite3
+
+ '''
+         'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    '''
+
+mysqlclient
+===========
+
+mysqlclient is a interface between django(python) and mysql.
+                              
+                                Interface
+         django(python)<------>mysqlclient<-------->Mysql
+
+
+
+Model 
+=====
+1) Model is a representation of table in database.
+2) In order to create table, then create or define class 
+   model in the models.py file in application folder.
+
+              Model class = Table in database
+    
+    tablename:blog 
+
+    id  title detail cat created_at 
+
+       Table                                       Model 
+
+    1. tablename                                   Classname 
+    2. Columns or Field                            Data Members
+
+
+    create table blog(                      |    class Blog(models.Model):
+        id int primary key auto_increment,  |       id=
+        title varchar(50),                  |       title=
+        detail varchar(1000),               |       detail=
+        cat int,                            |       cat=
+        create_at datetime                  |       created_at=
+    )
+
+    Module : It is a collection of functions, constants and classes.
+
+    models module contains Model class.
+    Model class defined is inherited from Model class.
+
+    To define datatype to a data member which is actually 
+    a column in table models module conatins inbuilt functions.
+
+    CharField(max_length)   => varchar(size)
+    IntegerField()          => int 
+    FloatField()            => float 
+    DateTimeFiled()         => datatime

@@ -1,0 +1,123 @@
+settings.py file
+================
+location: Project folder
+
+Web Application Functionality = Application in Django Project.
+INSTALLED_APPS=[] contains list of in built app given by Django and 
+User defined app.
+
+python manage.py runserver
+
+python manage.py means it executed manage.py file which 
+internall run or executed settings.py file.
+
+
+
+Django Architecture 
+===================
+
+Need to understand Architecture 
+===============================
+Every application contains certain modules as per the functionalities
+Archituecture gives a detail view about the total numbers of 
+modules or components and their connectivity and also their 
+working.
+
+DJango Architecture => MVT 
+M: Model    V: View   T: Templates 
+
+Model
+=====
+It is a representative of database table in django.
+
+        Number of models = Number of tables in database.
+
+Templates:
+=========
+Presentation layer of application to.
+User Interface [UI]. 
+Templates  are html files and user interact with the templates.
+
+
+View:
+====
+It is a logical part of appliaction.
+It is a place where business logic is written as per the 
+client requirement.
+
+
+login.html 
+========== 
+Template                      view                      model 
+username:____ -------->      itvedant                   user 
+password:____                redhat123@             ID  Username   password
+                                                    1
+login                                               2
+
+
+View task 
+========
+username received from tempalte == username in the model 
+password received from template == password in the model 
+
+ Template
+Registration             views                      Model 
+
+Username:                              insert        User 
+password:   =========>   data receive ===========>
+mobile  :                from form
+
+Template                   views                     Model 
+dashboard.html                           Select      Post 
+Data from view  <=======   Data from   <===========
+                           Database
+
+
+
+urls.py from project folder i.e blog 
+views.py from application folder i.e blogapp 
+============================================
+
+ROOT_URLCONF = 'blog.urls'
+
+Request-Response Cycle or Bootstrap Flow.
+=========================================
+                   Request
+         http://localhost:8000/home
+         http://localhost:8000/contact
+         http://localhost:8000/placements
+client   -----------------------------------> Server
+Browser                                          |
+    |                                            |
+    |                                         urls.py [project folder]
+    |                                            |
+    |                          False             |
+    <----------NOT FOUND ----------urls received == urlpattern
+    |                                            | True
+    |                                            |
+    |                                            |
+    |                                            |
+    |                                        Views.py
+    |                                            |
+    |                                        def functionview():
+    |                                          
+    <--------------RESPONSE ------------------  return response
+
+
+
+step1: Server receive request i.e url from client.
+step2: server tries to map url received from client with  
+       the urls mentioned in the urlpatterns=[] in the urls.py 
+       file in project folder.
+step3: If   url received not found or didnt mapped with any 
+       one of the url mentioned in the urls.py file.
+       then Server gives NOT FOUND response. 
+step4: If it matched,
+       Then it calls a function defined in the views.py file 
+       of application folder.
+       That function provides response to client or browser.
+
+task
+====
+path('about',views.aboutpage), => def aboutpage
+path('contact',views.contactpage),

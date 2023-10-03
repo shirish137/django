@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <title>Home</title>
+</head>
+<body>
+        <h4>Variable Interpolation </h4>
+        <strong>Welcome</strong>&nbsp;&nbsp;{{uname}} !
+        <hr>
+
+    {% comment %}
+        <h4>Decision control instuction </h4>
+        {% if x > y %}
+               In if block <br>
+               {{x}} is greater.
+        {% else %}
+               In else block <br>
+               {{y}} is greater.
+        {% endif %}
+        <hr>
+    {% endcomment %}
+
+        <h4>Loop control instruction</h4>
+        {% for x in l %}  <!--  l=[10,20,'Itvedant',90.8]-->
+               {{x}} <br>
+        {% endfor %}
+
+    <br>
+    <button onclick="hello()">Click Me</button>
+    <hr>
+    <h4>Static images</h4>
+    <img src="{% static 'images/mvt.jpg' %}" alt="">
+</body>
+</html>

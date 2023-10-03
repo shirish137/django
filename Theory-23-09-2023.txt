@@ -1,0 +1,53 @@
+link images 
+===========
+<img src="{% static 'images/mvt.jpg' %}" alt="">
+
+UI for blogg application
+========================
+1) Home page 
+
+    Navigation bar 
+    Register,login,logout,Home,contact,About 
+
+    Categories listed.
+    User click on the catrgory to read blogs related to that category.
+
+    latest blogs -last 7 days blogs.
+
+
+    ===========================================================
+    ZeeBlog      Home  About  Contact  Register Login Logout    Header
+    ===========================================================
+                        |
+     Categories         |    Lastest blogs
+                        |                                       Main Body
+                        |
+                        |
+                        |
+                        |
+                        |
+    <---------------------row = 12 columns-------------------->
+
+    ===========================================================
+    address            |  Quick Links        |   Connect Us      Footer
+    4 columns              4 columns             4 columns 
+    col-md-4               col-md-4              col-md-4
+
+
+
+Bootstrap 
+=========
+it is a css framework.
+
+
+www.itvedant.com           => 127.0.0.1:8000
+www.itvedant.com/contact   => 127.0.0.1:8000/contact
+
+
+User or blogger Dashboard
+========================
+1) Create a blog => Form 
+2) View all created Blogs 
+3) Edit  a blog 
+4) Delete a blog
+5) Publish blog  

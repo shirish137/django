@@ -1,0 +1,152 @@
+DTL: Django Template language
+=============================
+Webiste
+1) Static Website: Website on which data remains same for 
+   all the users is called as Static 
+2) Dynamic website:
+   website on which data changes as per the user logged in 
+   is called as Dynamic.
+
+   Static  Dynamic
+   ======  =======
+   Welcome Akshay!
+   Welcome Arvind!
+   Welcome Priyanka!  =====> Welcome variable !
+   Welcome Nayana!
+   Welcome Sunny!
+   Welcome Mayur!
+   Welcome Nitesh!
+   Welcome Mahendra!
+
+   Dynamic values are stored in the variable.
+   Thus there is need of variable in HTML.
+   But HTML is a tagging language and variable is a concept of
+   programming language. 
+
+   Thus to implement programming language concepts in HTML
+   using Django Framework, there is need of DTL.
+   
+   Decision control instruction : if..else
+   ======================================
+
+Home About Login Register Logout ====> Menu/Nav bar
+
+If user is not logged in  
+========================
+Home About Login Register
+
+If User is logged in 
+====================
+Home About Logout Profile
+
+For Menu swicthing based on user logged in , there is need of
+Decision control instruction 
+
+Loop control instuction 
+=======================
+If there is need to repeat HTML element or group of 
+HTML element for n number of times, then there is need
+of Loop control instruction in HTML.
+
+DTL 
+===
+1. Variable interpolation or string interpolation 
+2. Decision control instruction 
+3. Loop control instruction 
+4. Reusability 
+5. Template inheritance.
+
+
+Variable interpolation 
+======================
+This is used to show or hold dynamic data on the template or 
+html.
+
+syntax:
+{{variable name}}
+
+Data to template is send from view.
+Data from view to template is send in the form of  
+dictionary using render function.
+
+render(request,'template.html',data)
+
+
+                                                       Response 
+                                                          |
+                                           -----------------------------------
+                                          |                                    |
+                                    hello.html                          uname="Itvedant"
+
+                <strong>Welcome</strong>&nbsp;&nbsp;{{uname}} !  +     uname=Itvedant
+        Response <------- Merging of data with Template [rendering HTML]
+
+    
+
+
+Decision control instruction 
+============================
+if statement 
+-----------
+syntax:
+
+{% if condition %}
+     if body or 
+     HTML element to be shown if condition is True
+{% endif %}
+
+if..else
+========
+{% if condition %}
+     HTML elements to be show if condition is True
+{% else %}
+    HTML elements to be shown if condition is False
+{% endif %}
+
+else if 
+========
+{% if condition %}
+
+{% elif condition %}
+
+{% elif  condition %}
+
+{% else %}
+
+{% endif %}
+
+
+Decision control instuction 
+===========================
+syntax:
+
+{% for var in data %}
+   body of Loop
+{% endfor %}
+
+Comments in DTL 
+==============
+{% comment %}
+
+  HTML elements within this block are commented.
+{% endcomment %}
+
+
+Static file configuration 
+========================
+static files: css,js,images 
+
+step1: create static folder in external project folder or 
+       in the same level as that of templates folder.
+step2: create css, js and images folder in the 
+       static folder.
+step3: create style.css in css folder,
+       create main.js in js folder.
+step4: configuration of static folder
+       in settings.py file.
+
+       Define a constant as shown.
+       STATICFILES_DIRS=[
+            os.path.join(BASE_DIR,'static')
+       ]
+

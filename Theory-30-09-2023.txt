@@ -1,0 +1,66 @@
+User Dashboard 
+==============
+1) User must have a button to create a blog.
+2) User must see all his blog created
+3) User must edit,delete and Publish the blog.
+4) User must have filter option.
+
+
+ ------------
+|create blog |
+ ------------
+
+                 Sr.no | Blog title |category |edit |delete |details 
+
+
+
+
+
+
+                 filter by Category  
+
+When form is submitted , data entered in the form input elements is lined
+with the name attribute value.
+
+key   Value
+title=Python Database connection
+detail=Blog details to be written
+cat=1
+
+Methods of Form Submission
+==========================
+GET and POST 
+By Default , i.e if you do not specify the method then it 
+submit the data with GET method.
+In GET method data submitted by form is visible in the URL
+
+http://127.0.0.1:8000/createblog?title=Title+of+the+blog&detail=Details+to+be+give&cat=1
+
+POST Method 
+===========
+When form is submitted with POST Method, data in the  
+form of Key and Value is not visible in the url ,but it 
+is send to backend in secured manner.
+
+
+When form is submitted it is directed to 
+127.0.0.1:8000/createblog  => Method POST
+
+Manual enter url 127.0.0.1:8000 or click on create blog 
+Request Method=> GET
+
+
+class student:
+
+   def display(self):
+       self.name="Itvedant"
+
+
+s1=student()
+s1.display()
+s1.name
+
+request is a object that store all request data.
+type=> GET,POST,DELETE,PUT/PATCH 
+
+request.method given me the type of method for that request.

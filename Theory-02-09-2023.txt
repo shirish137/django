@@ -1,0 +1,116 @@
+Installation of Django
+======================
+
+Prerequiste before developing Django Application
+----------------
+1) Python installed    -checked
+2) code editor-VScode  -checked  
+3) Mysql DBMS -XAMPP|workbench |Mysql- checked 
+4) server-Django Framework  
+5) client-browser - Checked 
+
+step1: install virtual Environment 
+       
+                  Project 1       Project 2 
+                    
+  case: Anaconda Environment is installed on your system which 
+        internally install python. With python installation, 
+        pip is also installed.
+
+        pip is a package intallation manager.
+        His work is to download and install or uninstall all modules.
+                    
+        pip install modulename 
+        or 
+        pip uninstall modulename
+
+        Also on the same system, there is installation of 
+        python from its official website from python.org.
+        Python installed, its pip is also installed.
+
+        In order to create virtual environment, there is need
+        to install virtualenv module.
+
+        pip install virtualenv 
+
+        pip help: This show all options for pip
+        pip freeze: To see the list of installed pacakages in that environment
+
+step2: create virtual environment 
+       
+       syntax:
+       virtualenv environment_name
+       e.g
+       virtualenv env  or venv
+       or
+       python -m virtualenv env 
+
+step3: activate virtualenv 
+      env\Scripts\activate 
+
+step4: install django 
+       pip install django 
+
+       It install following packages 
+        asgiref==3.7.2
+        Django==4.2.4
+        sqlparse==0.4.4
+        tzdata==2023.3
+
+Deactivating virtual environment:
+env\Scripts\deactivate 
+
+Django Project Structure 
+=======================
+In django there is one project and many application.
+
+Project    : Company 
+Applictions: HR,Accounts,Training,Operation,Production,Sales
+             Every department has different functionalities.
+
+Project        : Ecommerce 
+Functionalities: Application 
+                1) Registration 2) Login 3) Product details 
+                4) Cart management   5) place order 
+                6) Payment 
+
+    Every functinality or feature can be considered as 
+    Application in the Django.
+
+1) Creating project in django
+   project name: blog 
+
+   command to create project in django: 
+
+   django-admin startproject projectname
+e.g:
+   django-admin startproject blog 
+
+
+project folder(blog)
+   - blog 
+   - manage.py 
+
+manage.py is the main file it contain 
+main() function to start your application.
+
+2) Create application 
+
+  step1: change directory 
+        change folder to project folder 
+        cd projectfoldername
+        cd=> change directory
+
+        cd blog
+
+  step 2: 
+      python manage.py startapp applicationname
+
+      python manage.py startapp blogapp
+
+
+3) run server to see application running 
+
+   python manage.py runserver 
+
+
