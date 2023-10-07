@@ -112,21 +112,20 @@
                                    <th>Delete</th>
                                    <th>Details</th>
                               </tr>
-
+                       {% for x in blogs %}
                               <tr>
-                                   <td>1.</td>
-                                   <td>Blog 1</td>
-                                   <td>Category 1</td>
+                                   <td>{{x.id}}</td>
+                                   <td>{{x.title}}</td>
+                                   <td>{{x.cat}}</td>
                                    <td>
-                                         <a href="">
+                                         <a href="/edit/{{x.id}}">
                                                 <button class="btn btn-warning">
                                                      Edit
                                                 </button>
                                          </a>
                                    </td>
-
                                    <td>
-                                    <a href="">
+                                    <a href="/delete/{{x.id}}">
                                            <button class="btn btn-danger">
                                                 Delete
                                            </button>
@@ -141,35 +140,8 @@
                                     </a>
                                   </td>
                               </tr>
-
-                              <tr>
-                                <td>2.</td>
-                                <td>Blog 2</td>
-                                <td>Category 2</td>
-                                <td>
-                                      <a href="">
-                                             <button class="btn btn-warning">
-                                                  Edit
-                                             </button>
-                                      </a>
-                                </td>
-
-                                <td>
-                                 <a href="">
-                                        <button class="btn btn-danger">
-                                             Delete
-                                        </button>
-                                 </a>
-                               </td>
-
-                               <td>
-                                 <a href="">
-                                        <button class="btn btn-success">
-                                             See details
-                                        </button>
-                                 </a>
-                               </td>
-                           </tr>
+                        {% endfor %}
+                             
                       </table>
               </div>
 

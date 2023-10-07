@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
-
+from blogapp.models import Blog
+import datetime
 # Create your views here.
 def aboutpage(request):
     #return HttpResponse("This is about page")
@@ -36,7 +37,12 @@ def helloview(request):
 def homepage(request):
     return render(request,'home.html')
 def user_dashboard(request):
-    return render(request,'dashboard.html')
+    b=Blog.objects.all() #select * from blogapp_blog
+    context={}
+    context['blogs']=b
+    return render(request,'dashboard.html',context)
+
+
 def create_blog(request):
     #print("Method Type:",request.method)
     if request.method=="GET":#GET==GET T | POST == GET F
@@ -53,8 +59,8 @@ def create_blog(request):
        #print("Details:",bdet)
        #print("Category:",bcat)
 
-       return HttpResponse("Data Fetched")
-    
+       b=Blog.objects.create(title=btitle,detail=bdet,cat=bcat,created_at=datetime.datetime.now())
+       b.save()
 
-def testfunction(request):
-    pass
+       return HttpResponse("Data Inserted Successfully")
+    

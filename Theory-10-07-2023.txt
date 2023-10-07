@@ -1,0 +1,101 @@
+Migrations [Moving from one place to another place.]
+=========
+Moving or migrating model from django to DBMS table.
+
+1) python manage.py makemigrations.
+   This command create a migrations file which contains  
+   necessary code required to create table in the Database.
+
+   This file is created in the migration folder inside  
+   application folder.
+
+2) python manage.py migrate 
+   This command will create a table in the database.
+   or it will execute the code in migration file to create 
+   table in the database.
+
+   Table to be created 
+   1) define models in model.py 
+   2) makemigrations 
+   3) migrate 
+
+
+   Insert operations 
+   ================
+   sql query
+   ---------
+   insert into blogapp_blog(title,detail,cat,created_at)
+                   values(btitle,bdet,bcat,datetime.datetime.now())
+   
+   ORM=Object Relational Mapping 
+
+   orm queries
+   -----------
+   Modelname.objects.create(colname1=val1,col2=val2,...,colN=valN)
+
+   e.g 
+   b=Blog.objects.create(title=btitle,detail=bdet,cat=bcat,created_at=datetime.datetime.now())
+   b.save()
+
+
+
+   fetch all data from database model or table.
+   ==========================================
+   sql query 
+   ---------
+   select * from blogapp_blog;
+
+   orm query 
+   ---------
+   Modelname.objects.all()
+   This query returs list of objects called as Queryset.
+
+1st iteration
+       +----+--------+---------------------------------------------+-----+----------------------------+
+       | id | title  | detail                                      | cat | created_at                 |
+       +----+--------+---------------------------------------------+-----+----------------------------+
+x->    |  1 | insert | inserting record with ORM queries in django |   1 | 2023-10-07 09:10:23.296846 |
+       |  2 | fetch  | fetch data from database                    |   3 | 2023-10-07 09:39:07.447034 |
+       +----+--------+---------------------------------------------+-----+----------------------------+
+x.id = 1
+x.title= insert 
+x.detail= inserting....
+x.cat=1
+x.created_at= 2023-..
+
+
+2nd iteration
+       +----+--------+---------------------------------------------+-----+----------------------------+
+       | id | title  | detail                                      | cat | created_at                 |
+       +----+--------+---------------------------------------------+-----+----------------------------+
+       |  1 | insert | inserting record with ORM queries in django |   1 | 2023-10-07 09:10:23.296846 |
+x->    |  2 | fetch  | fetch data from database                    |   3 | 2023-10-07 09:39:07.447034 |
+       +----+--------+---------------------------------------------+-----+----------------------------+
+x.id = 2
+x.title= fetch 
+x.detail= fetch data from database 
+x.cat=3
+x.created_at= 2023-..
+
+
+''''
+    print(b)
+    for x in b:
+        print(x)
+        print("ID:",x.id)
+        print("Title:",x.title)
+        print("Detail:",x.detail)
+        print("Cat:",x.cat)
+        print("Created_at:",x.created_at)
+        print()'''
+
+
+
+delete 
+======
+delete from tablename where id=3;
+
+edit 
+====
+Update tablename SET col1=newval1,col2=newval2,....,colN=newvalN
+where id=3;
