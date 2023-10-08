@@ -1,0 +1,71 @@
+delete operation
+================
+deleting a specific record require id of that record.
+
+127.0.0.1::8000/edit/3  ----> edit/<rid> then rid=3
+
+def edit(request,rid):
+   access id via rid
+
+127.0.0.1:8000/delete/4 ----> delete/<rid> then rid=4
+
+def delete(request,rid):
+
+    access id via rid 
+
+SQL query:
+=========
+delete from blogapp_blog where id=rid;
+
+delete/4 
+rid=4 
+delete from blogapp_blog where id=4;
+
+Divide above query into two parts.
+1) where id=4 => search a record from table that is to be deleted.
+2) delete from blogapp_blog => delete a record.
+
+ORM query 
+========
+1) search a record from a table.
+   function or method in ORM: filter(condition) [aliasing of where clause in sql]
+
+   row or object=MOdelname.objects.filter(condition)
+
+   e.g 
+   b=Blog.objects.filter(id=rid)
+   Object to be deleted is fetched or searched.
+
+2) delete object or row 
+
+   object.delete() 
+
+   e.g 
+   b.delete()
+
+
+
+Edit blog 
+=========
+1) display old information of that record in a editable form.
+2) update that information filled by user into database.
+
+
+1) Display old information of that record in a editable form.
+
+a) create editblog.html file which is similar to create_blog.html 
+b) Fetch record to be edited and send that data to 
+   editblog.html for user reference.[For user to see that old record]
+
+   
+2) Update record in the database  table.
+
+    a) fetch rcord from the database to be updated.
+        b=Blog.objects.filter(id=rid)
+    
+    b) update()
+
+      object.update(colname1=uval1,colname2=upval2,....,colnameN=upvalN)
+
+      b.update(title=utitle,detail=udetail,cat=ucat)
+

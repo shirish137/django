@@ -11,12 +11,31 @@ def contactpage(request):
     return HttpResponse("This is contact Page")
 
 def edit(request,rid):
-    print("ID to be edited:",rid)
-    return HttpResponse("Id to be edited:"+rid)
+    #print("ID to be edited:",rid)
+    if request.method=="GET":
+        b=Blog.objects.filter(id=rid)
+        context={}
+        context['blog']=b
+        return render(request,'editblog.html',context)
+    else:
+        #Fetch new changes from the form 
+        utitle=request.POST['title']
+        udetail=request.POST['detail']
+        ucat=request.POST['cat']
+
+        #print("Updated title:",utitle)
+        #print("Update detail:",udetail)
+        #print("Updated Category:",ucat)
+        b=Blog.objects.filter(id=rid)
+        b.update(title=utitle,detail=udetail,cat=ucat)
+        return redirect('/userdashboard')
 
 def delete(request,rid):
-    print("ID to be deleted:",rid)
-    return HttpResponse("ID to be deleted:"+rid)
+    #print("ID to be deleted:",rid)
+    b=Blog.objects.filter(id=rid)
+    #print(b)
+    b.delete() # to delete object or row from table
+    return redirect('/userdashboard')
 '''
 def homepage(request,x,y):
     print("Value of x:",x)
@@ -62,5 +81,5 @@ def create_blog(request):
        b=Blog.objects.create(title=btitle,detail=bdet,cat=bcat,created_at=datetime.datetime.now())
        b.save()
 
-       return HttpResponse("Data Inserted Successfully")
-    
+       #return HttpResponse("Data Inserted Successfully")
+       return redirect('/userdashboard')

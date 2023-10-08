@@ -7,4 +7,5 @@ class Blog(models.Model):
     cat=models.IntegerField()
     created_at=models.DateTimeField()
 
+
     
