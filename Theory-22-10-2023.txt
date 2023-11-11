@@ -1,0 +1,59 @@
+Forms in Django
+===============
+There are two type of forms in django 
+1) Django Forms
+2) Model  forms
+
+
+Blog Create Form 
+===============
+
+class student:
+
+     def getdata(self):
+        self.school_name="Itvedant"
+        self.rno=input()
+        self.name=input()
+
+s1=student()
+s2=student()
+                Blog title   :_____________
+                Blog Details :_____________ ===> Form Class
+                Blog Category:_____________
+
+  Form Object 1                 Form Object 2
+
+ Blog title   :Forms            Blog title   :Forms
+ Blog Details :Django Forms     Blog Details :Model Forms
+ Blog Category:Django           Blog Category:Django
+
+Django Forms 
+============
+step1: Create forms.py file in the application folder.
+step2: define a form class that is inherited from Form class from 
+       forms module.
+
+       forms => django consist forms module.
+       Form  => forms module consist of Form class.
+
+       from django import forms
+       class FormClassName(forms.Form):
+
+step3: Data member are forms fields.
+       In class definition define forms fields as columns were
+       defined in the model class.
+
+step4: Import that form class in views.py 
+step5: create object of that form class in function view.
+step6: Pass that object to template or html file to display 
+       field on the browser.
+
+
+
+Model Forms:
+==========
+Forms that are created from the models data members or columns 
+are called as Model Form. 
+
+class ModelFormClassName(forms.ModelForm):
+     data memebers that are model data members.

@@ -1,0 +1,62 @@
+{% include 'header.html' %}
+<!--- Main section start-->
+    <div class="row mt-5">
+             <div class="col-md-8 mx-auto">
+              {% for x in blog %}
+                 <table class="table table-hover">
+                           <tr>
+                                 <th>Blog title</th>
+                                 <td>{{x.title}}</td>
+                           </tr>
+
+                           <tr>
+                                <th>Blog Category</th>
+                                {% if x.cat == 1 %}
+                                <td>Python</td>
+                                {% elif x.cat == 2 %}
+                                <td>Data Science</td>
+                                {% elif x.cat == 3 %}
+                                <td>Data Analyst</td>
+                                {% else %}
+                                <td>Java</td>
+                                {% endif %}
+                           </tr>
+
+                           <tr>
+                                <th>Blog Details</th>
+                                <td>{{x.detail}}</td>
+                           </tr>
+
+                           <tr>  
+                            <td>
+                                {% if x.is_published %}
+                                 <a href="/publish/U/{{x.id}}"><button class="btn btn-danger">Unpublish</button></a>
+                                {% else %}
+                                <a href="/publish/P/{{x.id}}"><button class="btn btn-danger">Publish</button></a>
+                                {% endif %}
+
+                            </td>
+                        </tr>
+                 </table>
+
+                 {% if pmsg %}
+                        <div class="alert alert-success" role="alert">
+                            {{pmsg}}
+                        </div>
+                 {% endif %}
+
+                   {% if umsg %}
+                        <div class="alert alert-success" role="alert">
+                            {{umsg}}
+                        </div>
+                    {% endif %}
+
+            {% endfor %}
+             </div>
+    </div><!-- Row end-->
+
+<!-- Main sectin end-->
+{% include 'footer.html' %}
+
+
+ 

@@ -1,95 +1,10 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <title>ZeeBlog|Home</title>
-</head>
-<body>
-    
-    <div class="container">
-            
-              <div class="row">     
-                       <div class="col-md-12 mt-3">
-
-                         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                            <div class="container-fluid">
-
-                              <a class="navbar-brand" href="/"><strong>ZeeBlog</strong></a>
-                              
-                              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-
-                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                  <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/about">About Us</a>
-                                  </li>
-
-                                  <!---<li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Dropdown
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">Action</a></li>
-                                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                                      <li><hr class="dropdown-divider"></li>
-                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                  </li>--->
-                                  <li class="nav-item">
-                                    <a href="/contact" class="nav-link " aria-disabled="true">Contact</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a href="/register" class="nav-link " aria-disabled="true">Register</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a href="/login" class="nav-link " aria-disabled="true">Login</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a href="/logout" class="nav-link " aria-disabled="true">Logout</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a href="/createblog" class="nav-link " aria-disabled="true">Create blog</a>
-                                  </li>
-
-
-
-
-                                </ul>
-
-                                <form class="d-flex" role="search">
-                                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
-                              </div>
-                           
-                            </div>
-                          </nav> 
-                         
-
-                       </div><!--Navbar end--> 
-            </div><!--Header End-->
+{% include 'header.html' %}
 
             <!--- Main sectin Start-->
             <div class="row mt-5">
-
+              
               <div class="col-md-3">
+                <p>Hi,<strong>{{user.first_name}}</strong></p>
                 <a href="/createblog">
                   <button class="btn btn-danger">Create Blog</button>
                 </a>
@@ -145,7 +60,7 @@
                                   </td>
 
                                   <td>
-                                    <a href="">
+                                    <a href="/see_det/{{x.id}}">
                                            <button class="btn btn-success">
                                                 See details
                                            </button>
@@ -163,48 +78,6 @@
 
             <!--- Main section End-->
 
-            <!---Footer start -->
+{% include 'footer.html' %}
 
-            <div class="row mt-5">
-                       <div class="col-md-4">
-                             <h4>Address</h4>
-                             <hr>
-                             <p><strong>Itvedant Education Pvt Ltd</strong></p>
-                             <p>4th Floor,Korem Building,</p>
-                             <p>After Toyota Showroom,</p>
-                             <p> Wagle Estate-Thane,</p>
-                             <p>Mumbai</p>
-                             <p><strong>Mobile:</strong>+91-9898989898</p>
-                             <p><strong>Email:</strong> mail@itvedant.com</p>
-
-                       </div>
-
-                       <div class="col-md-4">
-                             <h4>Quick Links</h4>
-                             <hr>
-
-                             <p><a href="" class="text-danger anchor"><strong>About Us</strong></a></p>
-                             <p><a href="" class="text-danger anchor"><strong>Contact</strong></a></p>
-                             <p><a href="" class="text-danger anchor"><strong>Programming</strong></a></p>
-                             <p><a href="" class="text-danger anchor"><strong>Data Science</strong></a></p>
-
-                       </div>
-
-                       <div class="col-md-4">
-                              <h4>Connect Us</h4>
-                              <hr>
-                              <p><a href="https://www.facebook.com/" target="_blank"><h4><i class="bi bi-facebook text-danger"></i></h4></a></p>
-                              <p><a href="https://www.twitter.com/" target="_blank"><h4><i class="bi bi-twitter-x text-danger"></i></h4></a></p>
-                              <p><a href="https://www.instagram.com/" target="_blank"><h4><i class="bi bi-instagram text-danger"></i></h4></a></p>
-                              <p><a href="https://www.linkedin.com/" target="_blank"><h4><i class="bi bi-linkedin text-danger"></i></h4></a></p>
-                       </div>
-            </div><!---Footer End-->
-
-
-
-
-    </div><!--Container end-->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
+           

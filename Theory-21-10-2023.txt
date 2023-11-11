@@ -1,0 +1,84 @@
+Roles in web application 
+========================
+blogger- create a blog,update,delete his own blogs
+         and can view his own as well as other blogs.
+viewer - can only view all the blogs written by bloggers.
+
+admin- super user who is having all the rights of that  
+       web application.
+
+For e.g admin or super user of a blogging website can have 
+following rights.
+1) can access all tables in the database.
+2) can create,update and delete any user.
+3) can create,delete,update any blog of any user.
+4) all view rights.
+
+In general view,edit,delete and create access on all the tables 
+or model in the database is given to admin or super user.
+
+
+create super user in Django 
+==========================
+cmd => python manage.py createsuperuser
+
+username:
+email:
+password:
+confirm password:
+
+Super user created successfully.
+
+Note: Naming convention for table in database in django 
+table name = appname_modelname 
+e.g 
+appname: blogapp 
+model  : blog
+table name: blogapp_blog
+
+Creating normal user using django administration 
+===============================================
+
+auth_user    : auth => application name and user is a model name.
+blogapp_blog : blogapp => application name and blog is a model.
+
+Registering django model in admin 
+================================
+Built in model User is accessed directly in django administration.
+Similary user defined model [Blog] can be accessed in the 
+django administration by Registering model in admin.
+
+How to Register Model in Admin?
+
+step1: Open admin.py file from application.
+step2: register model as follow in admin.py file.
+
+       admin.site.register(modelname)
+    Note: before registering model in admin make sure that 
+          model from models.py file is imported in admin.py file.
+
+
+Registering model with ModelAdmin class.
+=======================================
+ModelAdmin class is a inbuilt class in admin module.
+To change how a model is displayed in the django admin 
+interface, there is need to register model with ModelAdmin class.
+
+step1: define a class derived/inherited from ModelAdmin class 
+
+       class Classname(admin.ModelAdmin):
+
+            list_display=['colname1','colname2',...,'colnamen']/()
+            list_filter=[]/()
+
+step2: Register model with ModelAdmin class 
+
+       admin.site.register(modelname,ModelAdminClassName)
+
+
+To change or alias column name to be displayed in admin Interface 
+for a model 
+=================================================
+
+in model class use verbose_name parameter.
+

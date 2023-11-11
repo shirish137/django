@@ -1,0 +1,85 @@
+authenticate(),login() and logout()
+===================================
+These function are defined in auth application.
+
+Importing above function from auth application 
+
+from django.contrib.auth import authenticate,login,logout
+
+
+authenticate()
+=============
+step1: Fetch username and password from the login form in views.
+step2: Check username and password with the username and password
+       in auth_user table.
+
+       select * from auth_user where username=firstuser and password=redhat123@;
+       If condition is true for any row or object in auth_user table or model then that 
+       row or object is return by select statement.
+
+       same work of select statament is done by authenticate
+
+       syntax:
+
+       authenticate(username=uname,password=upass)
+
+       if any match is found then authenticate() function returns
+       that object otherwise it return None.
+
+
+       id password  username  is_superuser  first_name last_name email                  is_staff  is_active  date_joined  last_login 
+u<--    3  #dafsef   firstuser   0           first      user      firstuser@gmail.com    1         1
+
+
+session
+=======
+Session is piece of information stored on server side.
+Session stored data in the form of dictionary i.e key and value.
+Django stored session in django_session tabel or model in \
+the database.
+Data stored in session can be accessed anywhere in views, in 
+html files i.e templates.
+
+login(request,u)
+===============
+
+Login function internally set the session with the help of
+request object and stored authenticated user object i.e 
+row from the auth_user table for which username and password
+found to be correct.
+
+Since the user object is stored in session, its data 
+is available in any view function as well as in html files.
+
+Fetch data from session of logged in user  
+1) in Views.py 
+2) templates or html files 
+
+Views.py file .
+============
+In views.py file in any function authenticated user data from 
+the session can be fetched using request.user 
+
+request.user.first_name
+request.user.last_name 
+request.user.username
+
+html files or templates 
+======================
+in any html file or templates to fetched data from session of
+authenticated user use  'user'
+{{user.first_name}}
+{{user.last_name}} 
+{{user.username}}
+
+
+logout(request):
+This function delete all the data stored in the session during 
+authentication.[user object]
+
+
+
+
+
+
+

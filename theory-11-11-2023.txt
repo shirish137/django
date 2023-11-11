@@ -1,0 +1,10 @@
+Preventing unauthorized or unauthenticated url access 
+======================
+The pages or url which require mandatory user login or
+authentiocation, must check whether user had logged in 
+or nor before accessing view in views.py file.
+This can be achived with in built 
+request.user.is_authenticated attribute of user object.
+is_authenticated is a boolean field, whose value is 1 if 
+the user is logged in or it is 0 if user is not logged in.
+

@@ -1,0 +1,104 @@
+Cookies and Session 
+===================
+
+cookies 
+-------
+Cookies is a piece of information that is stored in the browser or client side.
+Cookies is a dictionary that stores the data in the 
+form of key and value.
+Data stored in the cookies can be accessed anywhere in 
+the application.
+But since cookies are stored in the browser, data stored 
+in the cookies are less secured.
+
+To set data in the cookies response object is used.
+Application 
+===========
+Cookies are used for better user experience when user
+visit the website for second time.
+
+def functionname(request):
+   function body.
+
+request is a object.
+request.POST[]
+
+response object 
+===============
+
+HttpResponse() : This is class that creates response object.
+render(): This method also creates a object.
+
+This response object set the data in the cookies.
+
+working
+=======
+
+                  Request   
+         -------------------------->
+client                                    server 
+
+         <-------------------------
+               Response 
+
+        data related to user browsing 
+        is stored in client end or 
+        on browser.
+
+2nd visit to the website
+         Request + data in the cookies
+                 browser 
+         --------------------------------->
+client                                          server 
+
+         <---------------------------------
+                  Response
+
+
+Large of amount of data cannot be stored in the cookies
+as browser had limited storage.
+
+If large of amount data is stored in the browser,
+then for every request that much amount of data must be 
+send, that may slow down request response cycle.
+
+to set cookies 
+==============
+syntax:
+
+response_object.set_cookie('key','value')
+
+to get cookie 
+=============
+syntax:
+
+request_object.COOKIES['key']
+
+
+Session 
+=======
+1) Session is a piece of information that is stored on  
+   server side.
+2) Session is dictionary that stores the data in the form of
+   key and value.
+3) Since session data is stored on the server they are  
+more secured as compared to cookies. so Sensitive data such as 
+username and password can be stored in session not in cookies.
+4) Session data on the server is either stored in the files 
+   or in the database table.
+   In django there is table named as django_session that 
+   stores the data in the form of key and value in encrypted 
+   format.
+
+5) To set data in the session request object is used.
+
+
+to set data in the session 
+==========================
+request_object.session['key']=value 
+
+to get data from the session 
+============================
+data=request_object.session['key']
+
+

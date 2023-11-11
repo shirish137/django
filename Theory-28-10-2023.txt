@@ -1,0 +1,21 @@
+Registration and Authentication or login 
+========================================
+
+Registration 
+============
+1) Register Form 
+2) View function: Fetch details filled by User.
+3) Insert those details in auth_user table.
+
+auth_user 
+
+auth=> application name
+user=> Model name [User]
+
+Registration form is a model form based on User Model.
+
+In built class: UserCreationForm => modelform 
+
+Login form: AuthenticationForm
+
+

@@ -1,0 +1,24 @@
+<html>
+           <head>
+                  <title>Django Forms</title>
+           </head>
+
+           <body>
+             <h1>Student Registration Form</h1>
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                     <table align="center">
+                                 {{mform}}
+                                
+                            <tr>
+                                <td colspan="2" align="center"> <input type="submit" value="Register"></td> 
+                               
+                            </tr>
+                     </table>
+            </form>
+                    
+                    
+
+           </body>
+</html>

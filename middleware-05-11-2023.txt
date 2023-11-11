@@ -1,0 +1,81 @@
+Middleware is a function or a code throught which request 
+and response passes.
+Every request from client and response from server passes
+through middleware.
+It is a plug in service.
+Middleware is added in the MIDDLEWARE constant in the 
+settings.py file.
+      Request                Request  
+      ---------->          --------->
+client           Middleware          server 
+      <---------            <---------
+        Response              Response
+
+
+step1: Create a file middleware.py in application folder.
+step2: define mddileware function as follow.
+
+       def middlewarename(get_response):
+            code to be written that need to executed once.
+            initialization 
+
+            def your_functionname(request):
+                  code need to executed before view function is called 
+
+                  variable=get_response(request)
+
+                  code need to be executed after views function is called 
+
+                  return variable 
+            
+            return your_functionname
+
+    
+
+    def middleware(get_response) this function is called 
+    when server runs.
+
+
+
+def my_middleware() this internal function is called when 
+there is a request from client.
+
+step1: request is given by client.
+step2: it call my_middleware function and that request passes through 
+       my_middleware function.
+step3: request from mymiddleware function is then passed to views.py 
+      function.
+step4: function based view or function in views.py provides 
+      response.
+step5: this response is captured by variable in middleware function.
+       variable=get_response(request)
+
+step6: Then that reponse is passed by middleware to client.
+
+is_authenticated 
+================
+It is a built in boolean field.
+Its value True if the user is authenticated.
+Its value is False if the user is not authenticated.
+
+In views.py  
+
+request.user.is_authenticated 
+
+In Templates
+
+{{user.is_authenticated}}
+
+blogapp_blog
+
+id   title   details    is_published    uid 
+1    abc     abc det     1               1
+2    lmn     lmn det     1               1
+3    xyz     xyz det     1               1
+4    ppp     ppp det     1               2
+5    lll     lll det     1               2
+
+Fetch the blog on the basis of logged in user and is_published =1
+
+
+request.user.id 
